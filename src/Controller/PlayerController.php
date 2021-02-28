@@ -21,7 +21,7 @@ class PlayerController extends AbstractController
             ->getRepository(Player::class)
             ->findAll();
 
-        return $this->render("player/index", ["players" => $players]);
+        return $this->render("player/index.html.twig", ["players" => $players]);
 
     }
 
@@ -42,7 +42,7 @@ class PlayerController extends AbstractController
 
             return $this->redirectTo("/player");
         }
-        return $this->render("player/form", ["player" => $player]);
+        return $this->render("player/form.html.twig", ["player" => $player]);
     }
 
 
@@ -53,7 +53,7 @@ class PlayerController extends AbstractController
         ->getRepository(Player::class)
         ->find($id);
         
-        return $this->render("player/show", ["player" => $player, "availableGames" => FakeData::games()]);
+        return $this->render("player/show.html.twig", ["player" => $player, "availableGames" => FakeData::games()]);
     }
 
 
@@ -76,7 +76,7 @@ class PlayerController extends AbstractController
 
             return $this->redirectTo("/player");
         }
-        return $this->render("player/form", ["player" => $player]);
+        return $this->render("player/form.html.twig", ["player" => $player]);
 
 
     }
